@@ -1,9 +1,13 @@
 # GrayJay [pietsmiet.de](https://www.pietsmiet.de/) source
+
 ## Installation
-<a href="https%3A%2F%2Fraw%2Egithubusercontent%2Ecom%2FBluscream%2Fgrayjay%2Dsource%2Dpietsmietde%2Fmaster%2Fconfig%2Ejson">grayjay://plugin/https://raw.githubusercontent.com/Bluscream/grayjay-source-pietsmietde/master/config.json</a>
+
+Copy and paste the link below into your browser to open the plugin in Grayjay
+
+```text
+grayjay://plugin/https://github.com/grayjay-sources/grayjay-source-pietsmietde/releases/latest/download/config.json
 ```
-https://raw.githubusercontent.com/Bluscream/grayjay-source-pietsmietde/master/config.json
-```
+
 <p align="center">
   <img src="https://github.com/Bluscream/grayjay-source-pietsmietde/assets/3318223/2f51ad7b-8f8d-4a78-aefe-68047bfdb71d" alt="qr code" width="400"/>
 </p>
