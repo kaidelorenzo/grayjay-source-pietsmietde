@@ -1,0 +1,82 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  build-and-release:
+    name: Build and Create Release
+    runs-on: ubuntu-latest
+    env:
+      PASSPHRASE: ${{ secrets.PASSPHRASE }} # Ensure PASSPHRASE is stored in GitHub Secrets
+      SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: "latest"
+
+      # Compile TypeScript files
+      - name: Compile TypeScript
+        run: tsc
+
+      # Save Signing Key To A File
+      - name: Save Signing Key
+        run: 'echo "$SIGNING_KEY" > private-key.pem'
+
+      # Run the signing script
+      - name: Sign files
+        run: |
+          node src/utilities/sign.js PornhubConfig.json PornhubScript.js private-key.pem "$PASSPHRASE"
+
+      # Create a GitHub release
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: |
+            Release for version ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload assets to release
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: PornhubConfig.json
+          asset_name: PornhubConfig.json
+          asset_content_type: application/json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload VimeoScript.js
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: PornhubScript.js
+          asset_name: PornhubScript.js
+          asset_content_type: application/javascript
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload VimeoIcon.png
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: pornhub.png
+          asset_name: pornhub.png
+          asset_content_type: image/png
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
