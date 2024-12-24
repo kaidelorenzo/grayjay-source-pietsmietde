@@ -6,7 +6,7 @@
 	"platformUrl": "https://www.pietsmiet.de/",
 	"tags": [],
 	"nsfw": false,
-	"sourceUrl": "https://github.com/grayjay-sources/grayjay-source-pietsmietde/releases/latest/download/config.json",
+	"sourceUrl": "https://github.com/kaidelorenzo/grayjay-source-pietsmietde/releases/latest/download/config.json",
 	"repositoryUrl": "https://github.com/Bluscream/grayjay-source-pietsmietde",
 	"scriptUrl": "./script.js",
 	"changelogUrl": "https://raw.githubusercontent.com/Bluscream/grayjay-source-pietsmietde/master/changelog.md",

@@ -8,7 +8,7 @@ Copy and paste the link below into your browser to open the plugin in Grayjay
 grayjay://plugin/https://github.com/grayjay-sources/grayjay-source-pietsmietde/releases/latest/download/config.json
 ```
 
-![QR code](https://github.com/Bluscream/grayjay-source-pietsmietde/assets/3318223/2f51ad7b-8f8d-4a78-aefe-68047bfdb71d)
+[![Scan this QR code in the Grayjay app to install this PietSmiet plugin for Grayjay](assets/qr.svg)](grayjay://plugin/https://github.com/grayjay-sources/grayjay-source-pietsmietde/releases/latest/download/config.json)
 
 ## Screenshots
 
