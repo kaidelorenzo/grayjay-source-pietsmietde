@@ -12,7 +12,7 @@ import {
 	type CommentResponse
 } from "./types";
 
-//#region defines
+//#region defines 
 const PLATFORM = "PietsmietDE" as const
 const PLATFORM_SHORT = "PSDE" as const
 
