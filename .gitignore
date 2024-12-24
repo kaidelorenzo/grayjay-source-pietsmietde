@@ -1,5 +1,11 @@
-*.har
+node_modules
+*.js
+*.js.map
 
-/assets/banner.*
-/assets/icon.*
-/assets/logo.*
+tsconfig.tsbuildinfo
+bun.lockb
+package-lock.json
+
+_dist
+build/types.ts
+build/script.ts
